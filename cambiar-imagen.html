@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambiar imagen al hacer clic</title>
+</head>
+
+<body>
+  <div>
+    <img src="semaforo-red.png"
+       id="semaforo"
+       onclick="finalizar()"
+    >
+  </div>
+
+  <script>
+    let   tiempo = 500;
+    const imagen = document.getElementById("semaforo");
+    const bucle = setInterval(cambiarImagen, tiempo);
+
+    function cambiarImagen() {
+	if (imagen.src.includes("red")) {
+		imagen.src = "semaforo-green.png";
+	} else if (imagen.src.includes("green")) {
+		imagen.src = "semaforo-yellow.png";
+	} else {
+		imagen.src = "semaforo-red.png";
+	}
+    }
+
+    function finalizar() {
+        clearInterval(bucle);
+	alert("Fin...");
+    }
+  </script>
+</body>
+</html>
